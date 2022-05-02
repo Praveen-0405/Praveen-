@@ -1,0 +1,138 @@
+t=[
+[
+    [{
+        "id":"1",
+        "first_name":"praveen",
+        "last_name":"kumar",
+        "dob":"2001"
+    },
+    {
+        "id":"2",
+        "first_name":"srinu",
+        "last_name":"vasu",
+        "dob":"1985"
+    },
+    {
+        "id":"3",
+        "first_name":"lalitha",
+        "last_name":"lali",
+        "dob":"1990"
+    }],
+    ["praveen_kumar_2001_1","srinu_1985_vasu_2","praveen_kumar_2001_1","1990_3_lali_lalitha","srinu_1985_vasu_2"]
+],
+[
+    [{
+        "id":"1",
+        "manager_name":"praveen",
+        "salary":"12000",
+        "place":"vizag"
+    },
+    {
+        "id":"2",
+        "manager_name":"srinu",
+        "salary":"500000",
+        "place":"hyderabad"
+    },
+    {
+        "id":"3",
+        "manager_name":"lalitha",
+        "salary":"25000",
+        "place":"hyderabad"
+    }],
+    ["praveen_12000_vizag_1","srinu_500000_hyderabad_2","hyderabad_3_25000_lalitha","hyderabad_3_25000_lalitha","srinu_500000_hyderabad_2"]
+],
+[
+    [{
+        "id":"1",
+        "book_name":"cpp",
+        "author":"praveen",
+        "price":"500"
+    },
+    {
+        "id":"2",
+        "book_name":"python",
+        "author":"vasu",
+        "price":"250"
+    },
+    {
+        "id":"3",
+        "book_name":"java",
+        "author":"lali",
+        "price":"350"
+    }],
+    ["praveen_cpp_500_1","python_250_vasu_2"]
+],
+[
+    [{
+        "id":"1",
+        "emp_name":"praveen",
+        "occupatuion":"service",
+        "salary":"5000",
+        "dob":"1999"
+    },
+    {
+        "id":"2",
+        "emp_name":"vasu",
+        "occupatuion":"coding",
+        "salary":"25000",
+        "dob":"1980"
+
+    },
+    {
+        "id":"3",
+        "emp_name":"lalitha",
+        "occupatuion":"testing",
+        "salary":"35000",
+        "dob":"1995"
+
+    }],
+    ["praveen_service_5000_1_1999","1980_25000_vasu_2_coding","3_35000_1995_testing_lalitha","fakeempid_testing_lalitha_1995_3_35000"]
+],
+[
+    [{
+        "id":"1",
+        "child_name":"praveen",
+        "school":"chaithanya",
+        "age":"10"
+    },
+    {
+        "id":"2",
+        "child_name":"nodagala",
+        "school":"narayana",
+        "age":"9"
+    },
+    {
+        "id":"3",
+        "child_name":"polamarasetty",
+        "school":"raghu",
+        "age":"8"
+    }],
+    ["praveen_10_chaithanya_1","8_raghu_polamarasetty_3","narayana_nodagala_9_2","zzz_xyz_123_000"]
+]
+]
+
+def Do(t):
+    query=t[1]
+    lst=[]
+    for i in query:
+        x=i
+        l=x.split("_")
+        l.sort()
+        lst.append(l)
+    details=t[0]
+    lst2=[]
+    for i in range(0,len(details)):
+        x=list(t[0][i].values())
+        x.sort()
+        lst2.append(x)
+    for i in range(0,len(query)):
+        if lst[i] in lst2:
+            z=lst2.index(lst[i])
+            print(query[i]+"-"+t[0][z]["id"])
+        else:
+            print("not found")
+    print("------------------------------------")
+
+n=len(t)
+for i in range(0,n):
+    Do(t[i])
